@@ -1,16 +1,16 @@
 import numpy as np
 
 def sigmoid(x):
-  # Sigmoid activation function: f(x) = 1 / (1 + e^(-x))
+
   return 1 / (1 + np.exp(-x))
 
 def deriv_sigmoid(x):
-  # Derivative of sigmoid: f'(x) = f(x) * (1 - f(x))
+ 
   fx = sigmoid(x)
   return fx * (1 - fx)
 
 def mse_loss(y_true, y_pred):
-  # y_true and y_pred are numpy arrays of the same length.
+
   return ((y_true - y_pred) ** 2).mean()
 
 class OurNeuralNetwork:
@@ -26,7 +26,6 @@ class OurNeuralNetwork:
   Instead, read/run it to understand how this specific network works.
   '''
   def __init__(self):
-    # Weights
     self.w1 = np.random.normal()
     self.w2 = np.random.normal()
     self.w3 = np.random.normal()
@@ -34,13 +33,13 @@ class OurNeuralNetwork:
     self.w5 = np.random.normal()
     self.w6 = np.random.normal()
 
-    # Biases
+ 
     self.b1 = np.random.normal()
     self.b2 = np.random.normal()
     self.b3 = np.random.normal()
 
   def feedforward(self, x):
-    # x is a numpy array with 2 elements.
+   
     h1 = sigmoid(self.w1 * x[0] + self.w2 * x[1] + self.b1)
     h2 = sigmoid(self.w3 * x[0] + self.w4 * x[1] + self.b2)
     o1 = sigmoid(self.w5 * h1 + self.w6 * h2 + self.b3)
@@ -53,7 +52,7 @@ class OurNeuralNetwork:
       Elements in all_y_trues correspond to those in data.
     '''
     learn_rate = 0.1
-    epochs = 1000 # number of times to loop through the entire dataset
+    epochs = 1000 
 
     for epoch in range(epochs):
       for x, y_true in zip(data, all_y_trues):
